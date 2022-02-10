@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import Wrapper from './components/wrapper/Wrapper';
+import Header from './components/header/Header';
 
 function App() {
   return (
     <Wrapper>
-      <h1>Привет, мир!</h1>
+      <Header title="TodoMVC"/>
     </Wrapper>
   );
 }
