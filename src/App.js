@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import Wrapper from './components/wrapper/Wrapper';
 
 function App() {
   return (
-    <h1>Привет, мир!</h1>
+    <Wrapper>
+      <h1>Привет, мир!</h1>
+    </Wrapper>
   );
 }
 
