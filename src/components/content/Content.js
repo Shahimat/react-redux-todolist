@@ -9,6 +9,8 @@ function ListItem ({ id, value }) {
   const [_id, _setID] = useState(id);
   return (
     <li>
+      <div className="ListItemBar">
+      </div>
       <div className="ListItemContent">
         <span>{value}</span>
         <button className="btn-delete" onClick={oEvent => {
