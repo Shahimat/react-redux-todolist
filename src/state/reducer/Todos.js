@@ -15,9 +15,13 @@ export const counterSlice = createSlice({
         value,
       });
     },
+    deleteTodo: (state, action) => {
+      const { id } = action.payload;
+      state.list = state.list.filter(oItem => oItem.id !== id);
+    },
   },
 });
 
-export const { addTodo } = counterSlice.actions;
+export const { addTodo, deleteTodo } = counterSlice.actions;
 
 export default counterSlice.reducer;

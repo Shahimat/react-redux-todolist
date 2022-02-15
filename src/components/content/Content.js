@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import './Content.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo } from '../../state/reducer/Todos';
+import { addTodo, deleteTodo } from '../../state/reducer/Todos';
 
-function ListItem ({ value }) {
+function ListItem ({ id, value }) {
+  const dispatch = useDispatch();
+  const [_id, _setID] = useState(id);
   return (
     <li>
-      {value}
+      <div className="ListItemContent">
+        <span>{value}</span>
+        <button className="btn-delete" onClick={oEvent => {
+          dispatch(deleteTodo({ id: _id }));
+        }}>x</button>
+      </div>
     </li>
   );
 }
 
 function TodoList({ todos }) {
   const aListItems = todos.map(({ id, value }) =>
-    <ListItem key={`${id}`} value={value} />
+    <ListItem key={`${id}`} id={`${id}`} value={value} />
   );
   return (
     <ul>
