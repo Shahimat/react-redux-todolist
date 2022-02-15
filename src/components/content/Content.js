@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Content.css';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../../state/reducer/Todos';
 
 function ListItem ({ value }) {
   return (
@@ -21,11 +24,9 @@ function TodoList({ todos }) {
 }
 
 function App() {
+  const todos = useSelector((state) => state.todos.list);
+  const dispatch = useDispatch();
   const [text, setText] = useState('');
-  const [todos, setTodos] = useState([]);
-  useEffect(() => {
-    console.log(todos);
-  });
   return (
     <div className='content'>
       <input
@@ -33,10 +34,7 @@ function App() {
         onChange={(oEvent) => setText(oEvent.target.value)} 
         onKeyPress={oEvent => {
           if (oEvent.code === 'Enter') {
-            setTodos((aTodos) => [{
-              id: aTodos.length,
-              value: text,
-            }, ...aTodos]);
+            dispatch(addTodo({ value: text }))
             setText('');
           }
         }}
