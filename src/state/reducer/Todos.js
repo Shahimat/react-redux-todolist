@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getUniqId } from './../../lib/slf';
 
 const initialState = {
   list: [],
@@ -11,7 +12,7 @@ export const counterSlice = createSlice({
     addTodo: (state, action) => {
       const { value } = action.payload;
       state.list.unshift({
-        id: `${state.list.length}`,
+        id: getUniqId(),
         value,
       });
     },
