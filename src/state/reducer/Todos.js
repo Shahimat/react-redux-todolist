@@ -14,15 +14,23 @@ export const counterSlice = createSlice({
       state.list.unshift({
         id: getUniqId(),
         value,
+        check: false,
       });
     },
     deleteTodo: (state, action) => {
       const { id } = action.payload;
       state.list = state.list.filter(oItem => oItem.id !== id);
     },
+    changeCheck: (state, action) => {
+      const { id } = action.payload;
+      let nItemIndex = state.list.findIndex(oItem => oItem.id === id);
+      if (nItemIndex !== -1) {
+        state.list[nItemIndex].check = !state.list[nItemIndex].check;
+      }
+    },
   },
 });
 
-export const { addTodo, deleteTodo } = counterSlice.actions;
+export const { addTodo, deleteTodo, changeCheck } = counterSlice.actions;
 
 export default counterSlice.reducer;

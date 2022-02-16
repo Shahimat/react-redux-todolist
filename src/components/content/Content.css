@@ -1,6 +1,6 @@
 :root {
   --input-padding-top-bottom: 1rem;
-  --input-padding-left: 0.5rem;
+  --input-padding-left: 3rem;
   --input-padding-right: 0.5rem;
 }
 
@@ -49,7 +49,15 @@ li .ListItemContent {
 }
 
 li .ListItemBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: var(--input-padding-left);
+}
+
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .btn-delete {
@@ -68,4 +76,9 @@ li .ListItemBar {
 .btn-delete:active {
   background: #ffe9e9;
   border: 1px solid gray;
+}
+
+.ListItemContentTextThrough {
+  text-decoration: line-through;
+  color: gray;
 }

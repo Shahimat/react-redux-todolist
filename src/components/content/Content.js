@@ -2,17 +2,24 @@ import React, { useState } from 'react';
 import './Content.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, deleteTodo } from '../../state/reducer/Todos';
+import { addTodo, deleteTodo, changeCheck } from '../../state/reducer/Todos';
 
-function ListItem ({ id, value }) {
+function ListItem ({ id, check, value }) {
   const dispatch = useDispatch();
-  const [_id, _setID] = useState(id);
+  const [_id] = useState(id);
+  const isChecked = useSelector((state) => {
+    let nItemIndex = state.todos.list.findIndex(oItem => oItem.id === _id);
+    return nItemIndex !== -1? state.todos.list[nItemIndex].check: false;
+  });
   return (
     <li>
       <div className="ListItemBar">
+        <input type="checkbox" id="scales" name="scales" className="checkbox" onChange={oEvent => {
+          dispatch(changeCheck({ id: _id }));
+        }}/>
       </div>
       <div className="ListItemContent">
-        <span>{value}</span>
+        <span className={isChecked? 'ListItemContentTextThrough': ''}>{value}</span>
         <button className="btn-delete" onClick={oEvent => {
           dispatch(deleteTodo({ id: _id }));
         }}>x</button>
