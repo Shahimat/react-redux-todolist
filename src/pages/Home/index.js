@@ -1,15 +1,15 @@
 import React from 'react';
 import './index.css';
-import Wrapper from './../../components/wrapper/Wrapper';
+import Layout from './../../layout/index';
 import Header from './../../components/feature/Header/index';
 import Content from './../../components/content/Content';
 
 function Home(props) {
   return (
-    <Wrapper>
+    <Layout>
       <Header title="TodoMVC"/>
       <Content/>
-    </Wrapper>
+    </Layout>
   );
 }
 

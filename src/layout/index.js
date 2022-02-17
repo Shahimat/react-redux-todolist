@@ -1,7 +1,7 @@
 import React from 'react';
-import './Wrapper.css';
+import './index.css';
 
-function App(props) {
+function Layout(props) {
   return (
     <div className='wrapper'>
       {props.children}
@@ -9,4 +9,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default Layout;
