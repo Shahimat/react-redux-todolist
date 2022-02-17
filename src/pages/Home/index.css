@@ -1,0 +1,18 @@
+.HomePageContent {
+  padding: 1rem 10rem;
+  height: 100%;
+  overflow: auto;
+  
+}
+
+.HomePageContent .HomePageContentInput {
+  outline: none;
+  width: calc(100% - var(--input-padding-left) - var(--input-padding-right));
+  padding-top: var(--input-padding-top-bottom);
+  padding-bottom: var(--input-padding-top-bottom);
+  padding-left: var(--input-padding-left);
+  padding-right: var(--input-padding-right);
+  margin: 0;
+  border: 1px solid rgb(184, 183, 182);
+  font-size: 1rem;
+}
