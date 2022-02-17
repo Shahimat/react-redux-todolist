@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Content.css';
+import './index.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, deleteTodo, changeCheck } from '../../state/reducer/Todos';
+import { addTodo, deleteTodo, changeCheck } from '../../../state/reducer/Todos';
 
 function ListItem ({ id, check, value }) {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function TodoList({ todos }) {
   );
 }
 
-function App() {
+function Content() {
   const todos = useSelector((state) => state.todos.list);
   const dispatch = useDispatch();
   const [text, setText] = useState('');
@@ -60,4 +60,4 @@ function App() {
   );
 }
 
-export default App;
+export default Content;
