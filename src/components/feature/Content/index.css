@@ -1,11 +1,11 @@
-.content {
+.HomePageContent {
   padding: 1rem 10rem;
   height: 100%;
   overflow: auto;
   
 }
 
-input {
+.HomePageContent .HomePageContentInput {
   outline: none;
   width: calc(100% - var(--input-padding-left) - var(--input-padding-right));
   padding-top: var(--input-padding-top-bottom);

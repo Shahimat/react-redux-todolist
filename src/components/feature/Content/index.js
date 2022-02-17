@@ -20,8 +20,9 @@ function Content() {
     }
   };
   return (
-    <div className='content'>
+    <div className='HomePageContent'>
       <input
+        className='HomePageContentInput'
         value={text}
         onChange={handleInputChange}  
         onKeyPress={handleInputAccept}
