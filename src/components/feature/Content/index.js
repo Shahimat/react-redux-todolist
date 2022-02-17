@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, deleteTodo, changeCheck } from '../../../state/reducer/Todos';
+import { addTodo, deleteTodo, changeCheck } from '../../../store/Todos';
 
 function ListItem ({ id, check, value }) {
   const dispatch = useDispatch();

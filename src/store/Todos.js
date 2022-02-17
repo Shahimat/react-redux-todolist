@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getUniqId } from './../../lib/slf';
+import { getUniqId } from './../lib/slf';
 
 const initialState = {
   list: [],
