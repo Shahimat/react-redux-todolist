@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,9 +6,8 @@ import { deleteTodo, changeCheck } from '../../../store/Todos';
 
 function ListItem ({ id, check, value }) {
   const dispatch = useDispatch();
-  const [_id] = useState(id);
   const isChecked = useSelector((state) => {
-    let nItemIndex = state.todos.list.findIndex(oItem => oItem.id === _id);
+    let nItemIndex = state.todos.list.findIndex(oItem => oItem.id === id);
     return nItemIndex !== -1? state.todos.list[nItemIndex].check: false;
   });
 
