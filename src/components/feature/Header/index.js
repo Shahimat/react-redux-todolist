@@ -1,7 +1,7 @@
 import React from 'react';
-import './Header.css';
+import './index.css';
 
-function App({ title }) {
+function Header({ title }) {
   return (
     <div className='header'>
       <h1 className='headerTitle'>{title}</h1>
@@ -9,4 +9,4 @@ function App({ title }) {
   );
 }
 
-export default App;
+export default Header;
