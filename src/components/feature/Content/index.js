@@ -11,18 +11,23 @@ function ListItem ({ id, check, value }) {
     let nItemIndex = state.todos.list.findIndex(oItem => oItem.id === _id);
     return nItemIndex !== -1? state.todos.list[nItemIndex].check: false;
   });
+
+  const handleCheck = () => {
+    dispatch(changeCheck({ id }));
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteTodo({ id }));
+  };
+
   return (
     <li>
       <div className="ListItemBar">
-        <input type="checkbox" id="scales" name="scales" className="checkbox" onChange={oEvent => {
-          dispatch(changeCheck({ id: _id }));
-        }}/>
+        <input type="checkbox" id="scales" name="scales" className="checkbox" onChange={handleCheck}/>
       </div>
       <div className="ListItemContent">
         <span className={isChecked? 'ListItemContentTextThrough': ''}>{value}</span>
-        <button className="btn-delete" onClick={oEvent => {
-          dispatch(deleteTodo({ id: _id }));
-        }}>x</button>
+        <button className="btn-delete" onClick={handleDelete}>x</button>
       </div>
     </li>
   );
@@ -43,17 +48,21 @@ function Content() {
   const todos = useSelector((state) => state.todos.list);
   const dispatch = useDispatch();
   const [text, setText] = useState('');
+
+  const handleInputChange = (oEvent) => setText(oEvent.target.value);
+
+  const handleInputAccept = (oEvent) => {
+    if (oEvent.code === 'Enter') {
+      dispatch(addTodo({ value: text }))
+      setText('');
+    }
+  };
   return (
     <div className='content'>
       <input
         value={text}
-        onChange={(oEvent) => setText(oEvent.target.value)} 
-        onKeyPress={oEvent => {
-          if (oEvent.code === 'Enter') {
-            dispatch(addTodo({ value: text }))
-            setText('');
-          }
-        }}
+        onChange={handleInputChange}  
+        onKeyPress={handleInputAccept}
       />
       <TodoList todos={todos}/>
     </div>
