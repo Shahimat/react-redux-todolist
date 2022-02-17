@@ -20,3 +20,9 @@ code {
 #root {
   height: 100%;
 }
+
+:root {
+  --input-padding-top-bottom: 1rem;
+  --input-padding-left: 3rem;
+  --input-padding-right: 0.5rem;
+}
